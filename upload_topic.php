@@ -23,7 +23,9 @@ if(isset($_POST['btn-upload'])){
 				$target_dir=$final_block."/";
 			}
 			$path_filename_ext = $target_dir.$filename.".".$ext;
-           move_uploaded_file($temp_name,$path_filename_ext);
+			$final_file=$block."_".$scheduler."_".$scheduler_when."_".$select_day."_".$file;
+			$final_files = str_replace(':','_',$final_file);
+           move_uploaded_file($temp_name,$target_dir.$final_files);
     }
 	$final_file=$block."_".$scheduler."_".$scheduler_when."_".$select_day."_".$file;
 	$path = pathinfo($final_file);
